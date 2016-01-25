@@ -1,6 +1,12 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
+var SoundLink = React.createClass({
+  render: function(){
+    return(<a href={this.props.link}>{this.props.title}</a>)
+  }
+})
+
 var Post = React.createClass({
 
   getInitialState: function(){
@@ -8,7 +14,7 @@ var Post = React.createClass({
   },
 
   render: function(){
-    return (<div>{this.props.title}</div>)
+    return (<div><SoundLink title={this.props.title} link={"http://localhost:3000/data?id=" + this.props.stuff}/></div>)
   }
 })
 
@@ -33,7 +39,7 @@ var LatestPostList = React.createClass({
 
   render: function(){
     var createItem = function(item) {
-      return <Post title={item.title} key={item.id}/>;
+      return <Post title={item.title} key={item.id} time={item.time} stuff={item.id}/>;
     };
 
     var posts = this.state.list.map(createItem)
