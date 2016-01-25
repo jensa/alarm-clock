@@ -1,0 +1,13 @@
+{
+  "name": "alarm-clock",
+  "description": "Wake me up",
+  "author": "Jens Arvidsson <jensarv@gmail.com>",
+  "dependencies": {
+    "browserify": "^13.0.0",
+    "gulp-concat": "^2.6.0",
+    "react": "0.14.x",
+    "reactify": "^1.1.1",
+    "watchify": "^3.7.0"
+  },
+  "repository": "github.com/jensa/alarm-clock"
+}

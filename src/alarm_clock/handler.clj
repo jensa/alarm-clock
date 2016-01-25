@@ -43,8 +43,9 @@
 
 (defroutes app-routes
   (GET "/" [] (content-type (resource-response "index.html" {:root "public"}) "text/html"))
+  (route/resources "/")
   (GET "/posts" [] (response (get-posts)))
-  (GET "/posts/popular" [limit] (response (get-popular-posts (utils/parse-int limit))))
+  (GET "/posts/popular" [] (response (get-popular-posts 3)))
   (GET "/posts/new" [limit] (response (get-new-posts (utils/parse-int limit))))
   (GET "/data" [id] (response (get-data-by-id id)))
   (POST "/posts/add" [data] (add-post (clojure.walk/keywordize-keys (json/read-str data))))
